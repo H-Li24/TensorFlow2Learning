@@ -28,7 +28,7 @@ y_2_eval = np.random.random((200,10))
 
 callbacks = [
     tf.keras.callbacks.ModelCheckpoint(
-        filepath="./model/mymodel_{epoch}",
+        filepath="./checkpoints/model_callbacks/mymodel_{epoch}",
         save_best_only=False,
         monitor="val_loss",
         save_weights_only=True,
@@ -37,4 +37,4 @@ callbacks = [
 ]
 
 
-model.fit((x_1_train, x_2_train), (y_1_train, y_2_train), batch_size=64, epochs=30, validation_split=0.2, callbacks=callbacks)
+model.fit((x_1_train, x_2_train), (y_1_train, y_2_train), batch_size=64, epochs=5, validation_split=0.2, callbacks=callbacks)
