@@ -44,7 +44,7 @@ with tf.GradientTape() as tape:
     loss_class = loss_class_object(class_targets, class_predict)
     loss = loss_score + loss_class
 
-gradients = tape.gradient(loss, model.trainable_variables)
-optimizer.apply_gradients(zip(gradients, model.trainable_variables))
+gradients = tape.gradient(loss, model.trainable_weights)
+optimizer.apply_gradients(zip(gradients, model.trainable_weights))
 
-tf.print(model.trainable_variables)
+tf.print(model.trainable_weights)

@@ -38,8 +38,8 @@ for epoch in range(epochs):
         with tf.GradientTape() as tape:
             x_batch_predict = model(x_batch_train, training=True)
             loss = loss_object(y_batch_train, x_batch_predict)
-        gradients = tape.gradient(loss, model.trainable_variables)
-        optimizer.apply_gradients(zip(gradients, model.trainable_variables))
+        gradients = tape.gradient(loss, model.trainable_weights)
+        optimizer.apply_gradients(zip(gradients, model.trainable_weights))
 
         if step % 200 == 0:
             print("Training loss (for one batch) at step %s : %s" % (step, float(loss)))
