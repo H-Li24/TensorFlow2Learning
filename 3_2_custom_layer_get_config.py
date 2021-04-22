@@ -32,8 +32,6 @@ x = MyDense(units=3)(x)
 predictions = tf.nn.softmax(x)
 model = tf.keras.Model(inputs=inputs, outputs=predictions)
 
-model.compile(optimizer=tf.keras.optimizers.Adam(), loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True))
-
 # data
 iris = datasets.load_iris()
 
@@ -50,6 +48,9 @@ print(labels)
 
 # training
 
+
+model.compile(optimizer=tf.keras.optimizers.Adam(), loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True)) # 没有用one-hot，0，1，2的顺序编码方式
+
 model.fit(data, labels, batch_size=32, epochs=100, shuffle=True)
 
 # save model
@@ -60,8 +61,8 @@ print("variable:", model.weights) # 你也可以看model的权重
 print("non-trainable variable:", model.non_trainable_weights)
 print("trainable variable:", model.trainable_weights)
 
-_custom_objects = {
-    "MyDense" : MyDense
+_custom_objects = { # 这个不写的会找不到类名
+    "MyDense" : MyDense,
 }
 
 # load model
@@ -70,5 +71,5 @@ new_model = tf.keras.models.load_model("./checkpoints/model_h5/model_keras_custo
 
 y_test = new_model.predict(data)
 
-print(np.argmax(y_test, axis=1))
+print(np.argmax(y_test, axis=1)) # 横轴argmax
 print(np.shape(y_test))

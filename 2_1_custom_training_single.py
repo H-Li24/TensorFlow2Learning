@@ -7,7 +7,7 @@ import numpy as np
 from numpy.random import random_sample
 
 
-class single_in_single_out(tf.keras.Model):
+class single_in_single_out(tf.keras.Model): # 自定义网络
     def __init__(self, number_classes=10):
         super(single_in_single_out, self).__init__(name="my_model")
         self.number_classes = number_classes
@@ -42,5 +42,5 @@ for epoch in range(epochs):
         optimizer.apply_gradients(zip(gradients, model.trainable_weights))
 
         if step % 200 == 0:
-            print("Training loss (for one batch) at step %s : %s" % (step, float(loss)))
+            print("Training loss (for one batch) at step %s : %s" % (step, float(loss))) # 或者是loss.numpy()
 
