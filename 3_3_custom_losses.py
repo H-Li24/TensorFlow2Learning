@@ -34,7 +34,7 @@ class MyMeanSquaredError_class(tf.keras.losses.Loss):
         return loss
 
 
-def MyMeanSquaredError_func(): # 两个方法都可以
+def MyMeanSquaredError_func(): # 两个方法都可以compile
     def mean_squared_error(y_pred, y_true):
         loss = tf.reduce_mean(tf.square(y_pred - y_true))
         return loss

@@ -15,7 +15,6 @@ class Linear(tf.keras.layers.Layer): # 如果输入数据的维数不知道，�
         self.b = self.add_weight(shape=(1,), initializer="zeros", trainable=True)
         super(Linear,self).build(input_shape)
 
-
     def call(self, inputs):
         y_pred = tf.matmul(inputs, self.w) + self.b
         return y_pred

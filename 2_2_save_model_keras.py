@@ -22,5 +22,5 @@ labels2 = np.random.random((1000,10))
 
 model.fit((data1, data2), (labels1, labels2), epochs=5, batch_size=100)
 
-# model.save_weights("./checkpoints/model_keras/mykerasmodel")
-model.save_weights("./checkpoints/model_h5/weight_keras.h5")
+# model.save_weights("./checkpoints/model_keras/mykerasmodel") 
+model.save_weights("./checkpoints/model_h5/weight_keras.h5") # 只保存权重
