@@ -1,6 +1,7 @@
 import tensorflow as tf 
 import numpy as np
 
+'''
 # one data
 
 dataset1 = tf.data.Dataset.from_tensors(np.zeros(shape=(10,5,2), dtype=np.float32))
@@ -33,4 +34,3 @@ for element in dataset3:
     print(element["a"].shape, element["b"].shape)
     print(flag)
 
-'''

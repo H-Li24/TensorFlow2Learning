@@ -91,3 +91,4 @@ tf.print(myones)
 mymatmul2 = tf.math.multiply(my2dtensor, myones)
 
 tf.print(mymatmul2)
+print(mymatmul2)

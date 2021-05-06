@@ -10,7 +10,7 @@ def Gen():
     for (x,y) in gen:
         yield (x,y)
 
-flower_dataset = tf.data.Dataset.from_generator(Gen, output_types=(tf.float32, tf.float32))
+flower_dataset = tf.data.Dataset.from_generator(Gen, output_types=(tf.float32, tf.float32)) # 默认batch是32, 参数output_shapes不会写
 
 for image, label in flower_dataset:
     print(image.shape, label.shape)
